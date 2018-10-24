@@ -1,5 +1,5 @@
-	<section class="slider" id="home">
-		<div class="container-fluid">
+<section class="slider" id="home">
+		<div class="container-fluid" *ngIf="showBanner">
 			<div class="row">
 			    <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
 					<div class="header-backup"></div>
@@ -18,9 +18,123 @@
 			    </div>
 			</div>
 			
-		</div>	
-<div class="row carousel-caption">
-			<button>Find A Doctor</button>
-			</div>		
-	</section><!-- end of slider section -->
-	
+    </div>	
+    <div class="container-fluid" *ngIf="!showBanner">
+			<div class="row">
+        <br>
+        <br>
+        
+       
+       
+          <div class="form-group col-md-6">
+            <label for="exampleFormControlSelect1">am looking for a :</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option>Doctor/Medical Professional</option>
+                <option>Dental Professional</option>
+                <option>Vision Professional</option>
+                <option>Orthopedic Professional</option>
+                <option>Medical Equipment</option>
+              </select>
+              <label for="exampleFormControlSelect2">located near :</label>
+            <input type="text" class="form-control" id="exampleFormControlSelect2">
+                
+              <button (click)="getProvider($event)" class="btn btn-primary">Submit</button>
+          </div>
+          <div class="form-group form-group col-md-6">
+              <label for="exampleFormControlSelect3">who specilizes in :</label>
+              <select class="form-control" id="exampleFormControlSelect3">
+                  <option>Family/General Practice,Internal Med</option>
+                  <option>Dermatogology</option>
+                  <option>Dental</option>
+                  <option>Ear Nose Throat</option>
+                  <option>Emergency Medicine</option>
+                </select>
+
+                <label for="exampleFormControlSelect4">with in a distance of :</label>
+                <select class="form-control" id="exampleFormControlSelect4">
+                    <option>2 miles</option>
+                    <option>10 miles</option>
+                    <option>20 miles</option>
+                    <option>30 miles</option>
+                    <option>40 miles</option>
+                  </select>
+            
+          </div>
+         
+          
+       
+			</div>
+			<!--<table class="table"  *ngIf="showTable">-->
+          <!--<thead>-->
+            <!--<tr>-->
+              <!--<th scope="col">#</th>   -->
+              <!--<th scope="col">Provider name</th>-->
+              <!--<th scope="col">Category</th>-->
+              <!--<th scope="col">Rating</th>-->
+            <!--</tr>-->
+          <!--</thead>-->
+          <!--<tbody>-->
+            <!--<tr *ngFor="let provider of provider; let i = index">-->
+              <!--<th scope="row">{{i+1}}</th>-->
+              <!--<td>{{provider.providername}}</td>-->
+              <!--<td>{{provider.providercategoryname}}</td>-->
+              <!--<td><span ng-repeat="n in [] | 3" class="fa fa-star checked"></span></td>-->
+            <!--</tr>-->
+           <!---->
+          <!--</tbody>-->
+        <!--</table>-->
+    </div>
+  <div class="table-users" *ngIf="showTable">
+    <div class="header">Users</div>
+
+    <table cellspacing="0">
+      <tr>
+        <th>Picture</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th width="230">Comments</th>
+      </tr>
+
+      <tr>
+        <td><img class="img1" src="https://lorempixel.com/100/100/people/1" alt="" /></td>
+        <td>Jane Doe</td>
+        <td>jane.doe@foo.com</td>
+        <td>01 800 2000</td>
+        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
+      </tr>
+
+      <tr>
+        <td><img class="img1" src="http://lorempixel.com/100/100/sports/2" alt="" /></td>
+        <td>John Doe</td>
+        <td>john.doe@foo.com</td>
+        <td>01 800 2000</td>
+        <td>Blanditiis, aliquid numquam iure voluptatibus ut maiores explicabo ducimus neque, nesciunt rerum perferendis, inventore.</td>
+      </tr>
+
+      <tr>
+        <td><img class="img1" src="http://lorempixel.com/100/100/people/9" alt="" /></td>
+        <td>Jane Smith</td>
+        <td>jane.smith@foo.com</td>
+        <td>01 800 2000</td>
+        <td> Culpa praesentium unde pariatur fugit eos recusandae voluptas.</td>
+      </tr>
+
+      <tr>
+        <td><img class="img1" src="http://lorempixel.com/100/100/people/3" alt="" /></td>
+        <td>John Smith</td>
+        <td>john.smith@foo.com</td>
+        <td>01 800 2000</td>
+        <td>Aut voluptatum accusantium, eveniet, sapiente quaerat adipisci consequatur maxime temporibus quas, dolorem impedit.</td>
+      </tr>
+    </table>
+  </div>
+
+<div class="row carousel-caption" *ngIf="showBanner">
+			<button (click)="toggleForm($event)">Find A Doctor</button>
+      </div>
+      
+      
+  </section>
+
+
