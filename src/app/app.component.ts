@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,15 +18,16 @@ export class AppComponent  {
   toggleForm($event) {
     this.showBanner = !this.showBanner;
   }
+  getRating($event) {
+    alert("inside event");
+  }
 
   getProvider() {
     this.http.get('http://localhost:8081/getProvider')
      .subscribe(data => {
       this.provider = data;
-       this.provider = this.provider.providerList;
+      this.provider = this.provider.providerList; 
       this.showTable = true;
-      })
-     
-
+      });
   }
 }

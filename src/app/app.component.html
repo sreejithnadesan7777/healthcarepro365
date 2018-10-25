@@ -85,56 +85,38 @@
         <!--</table>-->
     </div>
   <div class="table-users" *ngIf="showTable">
-    <div class="header">Users</div>
+    <div class="header">Providers</div>
 
     <table cellspacing="0">
       <tr>
+      
         <th>Picture</th>
-        <th>Name</th>
+        <th>Provider name</th>
+        <th>Specialty</th>
         <th>Email</th>
         <th>Phone</th>
-        <th width="230">Comments</th>
+        <th>Location</th>
+        <th>Rating</th>
       </tr>
 
-      <tr>
-        <td><img class="img1" src="https://lorempixel.com/100/100/people/1" alt="" /></td>
-        <td>Jane Doe</td>
-        <td>jane.doe@foo.com</td>
-        <td>01 800 2000</td>
-        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
-      </tr>
-
-      <tr>
-        <td><img class="img1" src="http://lorempixel.com/100/100/sports/2" alt="" /></td>
-        <td>John Doe</td>
-        <td>john.doe@foo.com</td>
-        <td>01 800 2000</td>
-        <td>Blanditiis, aliquid numquam iure voluptatibus ut maiores explicabo ducimus neque, nesciunt rerum perferendis, inventore.</td>
-      </tr>
-
-      <tr>
-        <td><img class="img1" src="http://lorempixel.com/100/100/people/9" alt="" /></td>
-        <td>Jane Smith</td>
-        <td>jane.smith@foo.com</td>
-        <td>01 800 2000</td>
-        <td> Culpa praesentium unde pariatur fugit eos recusandae voluptas.</td>
-      </tr>
-
-      <tr>
-        <td><img class="img1" src="http://lorempixel.com/100/100/people/3" alt="" /></td>
-        <td>John Smith</td>
-        <td>john.smith@foo.com</td>
-        <td>01 800 2000</td>
-        <td>Aut voluptatum accusantium, eveniet, sapiente quaerat adipisci consequatur maxime temporibus quas, dolorem impedit.</td>
+      <tr  *ngFor="let provider of provider; let i = index">
+        <td><img class="img1" src="src/assets/1.jpeg" alt="" /></td>
+        <td>{{provider.providername}}</td>
+        <td>{{provider.providercategoryname}}</td>
+        <td>{{provider.email}}</td>
+        <td>{{provider.phone}}</td>
+        <td>{{provider.location}}</td>
+        <td (click)="getRating($event)" data-toggle="modal" data-target="#exampleModal"> <span *ngFor="let rating of [0,1,2,3,4]; let j = index"> <span *ngIf="rating < provider.rating" class="fa fa-star checked"></span><span *ngIf="rating >= provider.rating" class="fa fa-star"></span></span></td>
+        <br>
       </tr>
     </table>
   </div>
-
 <div class="row carousel-caption" *ngIf="showBanner">
 			<button (click)="toggleForm($event)">Find A Doctor</button>
-      </div>
-      
-      
+</div>
+
+
   </section>
+
 
 
