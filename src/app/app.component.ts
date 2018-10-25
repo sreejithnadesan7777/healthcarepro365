@@ -1,8 +1,9 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import * as Highcharts from 'highcharts/highstock';
-import Drilldown from 'highcharts/modules/drilldown';
-Drilldown(Highcharts);
+import * as Highcharts from 'highcharts';
+import drilldown from 'highcharts/modules/drilldown.src.js';
+drilldown(Highcharts);
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
