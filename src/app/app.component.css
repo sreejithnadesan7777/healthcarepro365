@@ -8,9 +8,7 @@ body {
   background-color: lighten($baseColor, 30%);
 * { box-sizing: border-box; }
 }
-.checked {
-    color: orange;
-}
+
 .header {
   color: rebeccapurple;
   font-size: 1.5em;
@@ -31,7 +29,7 @@ body {
   box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
   max-width: calc(100% - 2em);
   overflow: hidden;
-  width: 2000px;
+  width: 1400px;
 }
 
 table {

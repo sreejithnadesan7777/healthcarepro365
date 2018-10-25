@@ -13,7 +13,8 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'BenchNine', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    
 }
 li {
     list-style: none;
@@ -111,24 +112,24 @@ li a.active {
     background: #000 !important;
 }
 .carousel-caption h1 {
-    font-size: 157px;
+    font-size: 80px;
     color: #fff;
     text-transform: uppercase;
     margin-bottom: 0;
 }
 .carousel-caption p {
-    font-size: 40px;
+    font-size: 20px;
     color: #fff;
     text-transform: uppercase;
     font-weight: bold;
     margin-top: 0;
 }
 .carousel-caption button {
-    width: 240px;
+    width: 200px;
     height: 60px;
     background: #3a9ecb;
     color: #fff;
-    font-size: 30px;
+    font-size: 20px;
     text-transform: uppercase;
     border: 0;
     transition: all .5s ease 0s;
@@ -556,8 +557,7 @@ li a.active {
     color: #fff;
     background: url(src/assets/btn-bg.jpg);
     background-repeat: no-repeat;
-    padding: 0;
-    font-family: 'BenchNine', sans-serif;
+    padding: 0;   
     font-weight: bold;
 }
 .contact-form {
@@ -682,7 +682,7 @@ responsive area
         padding: 14px 12px;
     }
     .carousel-caption h1 {
-        font-size: 120px;
+        font-size: 90px;
     }
     .carousel-caption p {
         font-size: 32px;
@@ -714,7 +714,7 @@ responsive area
         padding: 10px 8px;
     }
     .carousel-caption h1 {
-        font-size: 90px;
+        font-size: 70px;
     }
     .carousel-caption p {
         font-size: 30px;
@@ -757,7 +757,7 @@ responsive area
         margin-top: -110px;
     }
     .carousel-caption h1 {
-        font-size: 75px;
+        font-size: 65px;
     }
     .carousel-caption p {
         font-size: 25px;
@@ -816,7 +816,7 @@ responsive area
         margin-top: -60px;
     }
     .carousel-caption h1 {
-        font-size: 20px;
+        font-size: 10px;
     }
     .carousel-caption p {
         font-size: 12px;
@@ -1472,4 +1472,87 @@ responsive area
       @media screen and (max-width: 768px) {
         #colorlib-services .services-wrap-flex .one-half .one-full-flex .services-desc {
           border: 1px solid #e6e6e6 !important; } }
+
+          input[type=text], select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+        
+        input[type=submit] {
+            background-color: #3a9ecb;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+            background-color: #3a9ecb;
+        }
+
+        table.paleBlueRows {
+            font-family: "Times New Roman", Times, serif;
+            border: 1px solid #FFFFFF;
+            width: 250px;
+            height: 200px;
+            text-align: center;
+            border-collapse: collapse;
+          }
+          table.paleBlueRows td, table.paleBlueRows th {
+            border: 1px solid #FFFFFF;
+            padding: 3px 2px;
+          }
+          table.paleBlueRows tbody td {
+            font-size: 13px;
+          }
+          table.paleBlueRows tr:nth-child(even) {
+            background: #D0E4F5;
+          }
+          table.paleBlueRows thead {
+            background: #0B6FA4;
+            border-bottom: 5px solid #FFFFFF;
+          }
+          table.paleBlueRows thead th {
+            font-size: 17px;
+            font-weight: bold;
+            color: #FFFFFF;
+            text-align: center;
+            border-left: 2px solid #FFFFFF;
+          }
+          table.paleBlueRows thead th:first-child {
+            border-left: none;
+          }
+          
+          table.paleBlueRows tfoot {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333333;
+            background: #D0E4F5;
+            border-top: 3px solid #444444;
+          }
+          table.paleBlueRows tfoot td {
+            font-size: 14px;
+          }
+
+          .visible {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 2s linear;
+          }
+          .hidden {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s 2s, opacity 2s linear;
+          }
+
+          
+        
+       
 		  

@@ -1,0 +1,24 @@
+{
+    "providerList": [
+      {
+        "providerid": "1635A5F1C0BCF1CBE46F2DAA2CD84F7B",
+        "providername": "THERESA M HOM DO",
+        "providercategoryname": "Doctor/Medical Professional",
+        "rating": 3,
+        "email": "test@anthem.com",
+        "phone": "9496621830",
+        "location": "Richmond",
+        "picture" :"member4.jpg"
+      },
+      {
+        "providerid": "1635A5F1C0BCF1CBE46F2DAA2CD84F78",
+        "providername": "CARMINE JHON DO",
+        "providercategoryname": "Doctor/Medical Professional",
+        "rating": 5,
+        "email": "test@anthem.com",
+        "phone": "9496621830",
+        "location": "Richmond",
+        "picture" :"member6.jpg"
+      }
+    ]
+  }

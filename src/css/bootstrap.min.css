@@ -837,11 +837,11 @@ td,th{
     box-sizing:border-box
 }
 html{
-    font-size:10px;
+    font-size:20px;
     -webkit-tap-highlight-color:rgba(0,0,0,0)
 }
 body{   
-    font-size:36px;
+    
     line-height:1.42857143;
     color:#333;
     background-color:#fff

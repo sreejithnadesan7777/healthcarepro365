@@ -4,9 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { HighchartsChartModule } from 'highcharts-angular';
 
+
 import { AppComponent } from './app.component';
-
-
 
 @NgModule({
   declarations: [
@@ -18,7 +17,7 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     HighchartsChartModule
   ],
-  exports: [ ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

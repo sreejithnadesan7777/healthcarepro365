@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import * as Highcharts from 'highcharts';
+import * as Highcharts from 'highcharts/highstock';
 import Drilldown from 'highcharts/modules/drilldown';
 Drilldown(Highcharts);
 @Component({
@@ -9,12 +9,15 @@ Drilldown(Highcharts);
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent  {
-  constructor(private http: HttpClient){}
+export class AppComponent {
+  @ViewChild('chartTarget') chartTarget: ElementRef;
+  constructor(private http: HttpClient) { }
   showBanner: boolean = true;
   showTable: boolean = false;
-  showChart: boolean = false;
+  showRating: boolean = false;
   title = 'healcarepro365';
+  showChart: boolean = false;
+  showSearch: boolean = false;
   Highcharts = Highcharts;
   chartOptions = {
     // series: [{
@@ -50,165 +53,174 @@ export class AppComponent  {
         }
       }
     },
-
     tooltip: {
       headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-      pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+      pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.1f}</b> of total<br/>'
     },
 
-    "series": [
+    'series': [
       {
-        "name": "Provider Rating",
-        "colorByPoint": true,
-        "data": [
+        'name': 'Provider Rating',
+        'colorByPoint': true,
+        'data': [
           {
-            "name": "Experience",
-            "y": 3,
-            "drilldown": "Experience"
+            'name': 'Experience',
+            'y': 3,
+            'drilldown': 'Experience'
           },
           {
-            "name": "Communication",
-            "y": 4,
-            "drilldown": "Communication"
+            'name': 'Communication',
+            'y': 4,
+            'drilldown': 'Communication'
           },
           {
-            "name": "Availability",
-            "y": 3,
-            "drilldown": "Availability"
+            'name': 'Availability',
+            'y': 3,
+            'drilldown': 'Availability'
           },
           {
-            "name": "Environment",
-            "y": 4,
-            "drilldown": "Environment"
+            'name': 'Environment',
+            'y': 4,
+            'drilldown': 'Environment'
           },
           {
-            "name": "Prescription Behaviour",
-            "y": 4.02,
-            "drilldown": "Prescription Behaviour"
+            'name': 'Prescription Behaviour',
+            'y': 4.02,
+            'drilldown': 'Prescription Behaviour'
           },
           {
-            "name": "Credibility",
-            "y": 1.92,
-            "drilldown": "Credibility"
+            'name': 'Credibility',
+            'y': 1.92,
+            'drilldown': 'Credibility'
           },
           {
-            "name": "Qualification",
-            "y": 4,
-            "drilldown": "Qualification"
+            'name': 'Qualification',
+            'y': 4,
+            'drilldown': 'Qualification'
           }
         ]
       }
 
 
     ],
-    "drilldown": {
-      "series": [
+    'drilldown': {
+      'series': [
         {
-          "name": "Communication",
-          "id": "Communication",
-          "data": [
+          'name': 'Communication',
+          'id': 'Communication',
+          'data': [
             [
-              "Quality Time with Patient",
+              'Quality Time with Patient',
               3
             ],
             [
-              "Follow Up",
+              'Follow Up',
               4
             ]
           ]
         },
         {
-          "name": "Availability",
-          "id": "Availability",
-          "data": [
+          'name': 'Availability',
+          'id': 'Availability',
+          'data': [
             [
-              "Office scheduling flexibility",
+              'Office scheduling flexibility',
               3
             ]
           ]
         },
         {
-          "name": "Prescription Behaviour",
-          "id": "Prescription Behaviour",
-          "data": [
+          'name': 'Prescription Behaviour',
+          'id': 'Prescription Behaviour',
+          'data': [
             [
-              "Generic/Branded",
+              'Generic/Branded',
               3
             ],
             [
-              "Prior Auth Approval (Medication)",
+              'Prior Auth Approval (Medication)',
               3
             ]
           ]
         },
         {
-          "name": "Credibility",
-          "id": "Credibility",
-          "data": [
+          'name': 'Credibility',
+          'id': 'Credibility',
+          'data': [
             [
-              "Claims Approval",
+              'Claims Approval',
               4
             ],
             [
-              "Readdmission Rate",
+              'Readdmission Rate',
               3
             ],
             [
-              "Data Practioner",
+              'Data Practioner',
               5
             ]
           ]
         },
         {
-          "name": "Experience",
-          "id": "Experience",
-          "data": [
+          'name': 'Experience',
+          'id': 'Experience',
+          'data': [
             [
-              "Years of Practice-Industry average",
+              'Years of Practice-Industry average',
               4
             ],
             [
-              "Claims Approval Rate",
+              'Claims Approval Rate',
               3
             ],
             [
-              "Prior Auth Approval Rate",
+              'Prior Auth Approval Rate',
               5
-            ] ,
+            ],
             [
-              "Certifcations-Industry Avag",
+              'Certifcations-Industry Avag',
               3
-            ] ,
+            ],
             [
-              "No of Speciality-Industry Avag",
+              'No of Speciality-Industry Avag',
               2
-            ] ,
+            ],
           ]
         }
 
       ]
     }
-  }
+  };
+
   providerName = '';
   provider = null;
   toggleForm($event) {
     this.showBanner = !this.showBanner;
+    this.showSearch = this.showBanner ? false :true;
   }
   getRating($event) {
     this.showChart = true;
     this.showTable = false;
+    this.showBanner = false;
+    this.showSearch = false;
   }
-  backFunction($event){
+  backFunction($event) {
     this.showChart = false;
     this.showTable = true;
   }
 
   getProvider() {
-    this.http.get('http://localhost:8081/getProvider')
-     .subscribe(data => {
-      this.provider = data;
-      this.provider = this.provider.providerList; 
-      this.showTable = true;
+    this.showTable = true;
+    this.showSearch = false;
+    this.http.get('src/json/provider.json')
+      .subscribe(data => {
+        this.provider = data;
+        this.provider = this.provider.providerList;
+        this.showTable = true;
       });
+  }
+  goToback() {
+    this.showTable = false;
+    this.showSearch = true;
   }
 }
