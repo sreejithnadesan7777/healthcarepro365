@@ -110,6 +110,17 @@
         <br>
       </tr>
     </table>
+
+  </div>
+  <div *ngIf="showChart">
+    <span (click)="backFunction($event)"><u>back</u></span>
+  <highcharts-chart
+
+    [Highcharts]="Highcharts"
+    [options]="chartOptions"
+
+    style="width: 100%; height: 400px; display: block;"
+  ></highcharts-chart>
   </div>
 <div class="row carousel-caption" *ngIf="showBanner">
 			<button (click)="toggleForm($event)">Find A Doctor</button>
@@ -117,6 +128,7 @@
 
 
   </section>
+
 
 
 
