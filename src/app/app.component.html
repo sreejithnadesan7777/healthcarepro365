@@ -30,7 +30,7 @@
       <br>
       <div class="col-md-6">
         <label for="exampleFormControlSelect1">Am looking for a :</label>
-        <select id="exampleFormControlSelect1">
+        <select [(ngModel)] = "professional" id="exampleFormControlSelect1">
             <option>Doctor/Medical Professional</option>
             <option>Dental Professional</option>
             <option>Vision Professional</option>
@@ -40,8 +40,8 @@
       </div>
       <div class="col-md-6">
         <label for="exampleFormControlSelect3">Who specilizes in :</label>
-        <select id="exampleFormControlSelect3">
-              <option>Family/General Practice,Internal Med</option>
+        <select  [(ngModel)] = "specialty" id="exampleFormControlSelect3">
+              <option>Family Practice & Osteopathic Manipulative Treatment</option>
               <option>Dermatogology</option>
               <option>Dental</option>
               <option>Ear Nose Throat</option>
@@ -53,17 +53,17 @@
     <div class="row">
       <div class="col-md-6">
         <label for="exampleFormControlSelect4">With in a distance of :</label>
-        <select class="" id="exampleFormControlSelect4">
-              <option>2 miles</option>
-              <option>10 miles</option>
-              <option>20 miles</option>
-              <option>30 miles</option>
-              <option>40 miles</option>
+        <select [(ngModel)] = "distance" id="exampleFormControlSelect4">
+              <option value="2">2 miles</option>
+              <option value="10">10 miles</option>
+              <option value="20">20 miles</option>
+              <option value="30">30 miles</option>
+              <option value="40">40 miles</option>
             </select>
       </div>
       <div class="col-md-6">
         <label for="exampleFormControlSelect2">Located near :</label>
-        <input type="text" id="exampleFormControlSelect2">
+        <input type="text" [(ngModel)] = "zipcode" id="exampleFormControlSelect2">
       </div>
     </div>
 
@@ -100,13 +100,13 @@
         </thead>
         <tbody>
           <tr *ngFor="let provider of provider; let i = index">
-            <td><img class="img1" src="src/assets/{{provider.picture}}" alt="" /></td>
+            <td><img class="img1" src="src/assets/{{provider.providername}}.jpg" alt="" /></td>
             <td>{{provider.providername}}</td>
             <td>{{provider.providercategoryname}}</td>
             <td>{{provider.email}}</td>
             <td>{{provider.phone}}</td>
             <td>{{provider.location}}</td>
-            <td (click)="getRating($event)" data-toggle="modal" data-target="#exampleModal"> <span *ngFor="let rating of [0,1,2,3,4]; let j = index"> <span *ngIf="rating < provider.rating" class="fa fa-star checked"></span>
+            <td (click)="getRating($event, provider.providerid)"><span *ngFor="let rating of [0,1,2,3,4]; let j = index"> <span *ngIf="rating < provider.rating" class="fa fa-star checked"></span>
               <span
                 *ngIf="rating >= provider.rating" class="fa fa-star"></span>
                 </span>

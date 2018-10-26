@@ -4,11 +4,15 @@ $imageBig: 100px;
 $imageSmall: 60px;
 $padding: 10px;
 
+
 body {
   background-color: lighten($baseColor, 30%);
 * { box-sizing: border-box; }
 }
 
+.checked {
+  color: orange;
+}
 .header {
   color: rebeccapurple;
   font-size: 1.5em;

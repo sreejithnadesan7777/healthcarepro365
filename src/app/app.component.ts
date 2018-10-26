@@ -20,6 +20,10 @@ export class AppComponent {
   showChart: boolean = false;
   showSearch: boolean = false;
   Highcharts = Highcharts;
+  professional = 'Doctor/Medical Professional';
+  specialty = 'Family Practice & Osteopathic Manipulative Treatment';
+  distance = '20';
+  zipcode = '43085';
   chartOptions = {
     // series: [{
     //   data: [1, 2, 3]
@@ -59,7 +63,7 @@ export class AppComponent {
       pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.1f}</b> of total<br/>'
     },
 
-    'series': [
+    series: [
       {
         'name': 'Provider Rating',
         'colorByPoint': true,
@@ -104,8 +108,8 @@ export class AppComponent {
 
 
     ],
-    'drilldown': {
-      'series': [
+    drilldown: {
+      series: [
         {
           'name': 'Communication',
           'id': 'Communication',
@@ -192,18 +196,25 @@ export class AppComponent {
       ]
     }
   };
-
-  providerName = '';
   provider = null;
   toggleForm($event) {
     this.showBanner = !this.showBanner;
     this.showSearch = this.showBanner ? false :true;
   }
-  getRating($event) {
+  getRating($event, providerid) {
     this.showChart = true;
     this.showTable = false;
     this.showBanner = false;
     this.showSearch = false;
+    this.http.get('https://localhost:3443/getRating', {
+      params: {
+        providerid: providerid
+      }
+    }).subscribe(data => {
+      this.provider = data;
+      this.provider = this.provider.providerList;
+      this.showTable = true;
+    });
   }
   backFunction($event) {
     this.showChart = false;
@@ -213,8 +224,14 @@ export class AppComponent {
   getProvider() {
     this.showTable = true;
     this.showSearch = false;
-    this.http.get('src/json/provider.json')
-      .subscribe(data => {
+    this.http.get('https://localhost:3443/getProvider', {
+      params: {
+        professional: this.professional,
+        specialty: this.specialty,
+        distance: this.distance,
+        zipcode: this.zipcode
+      }
+    }).subscribe(data => {
         this.provider = data;
         this.provider = this.provider.providerList;
         this.showTable = true;
