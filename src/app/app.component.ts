@@ -24,6 +24,7 @@ export class AppComponent {
   specialty = 'Family Practice & Osteopathic Manipulative Treatment';
   distance = '20';
   zipcode = '43085';
+  usemock = false;
   chartOptions = {
     // series: [{
     //   data: [1, 2, 3]
@@ -229,7 +230,8 @@ export class AppComponent {
         professional: this.professional,
         specialty: this.specialty,
         distance: this.distance,
-        zipcode: this.zipcode
+        zipcode: this.zipcode,
+        usemock: this.usemock.toString()
       }
     }).subscribe(data => {
         this.provider = data;

@@ -66,7 +66,11 @@
         <input type="text" [(ngModel)] = "zipcode" id="exampleFormControlSelect2">
       </div>
     </div>
-
+    <div class="row">
+      <div class="col-md-6">
+        <input type="checkbox" [(ngModel)]="usemock"  data-md-icheck/>Use Mock
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-6">
         <input class="btn-primary" (click)="getProvider($event)" type="submit" value="Submit">
