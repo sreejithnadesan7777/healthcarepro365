@@ -18,7 +18,12 @@
     </div>
   </div>
   <div class="row carousel-caption" *ngIf="showBanner">
-    <button (click)="toggleForm($event)">Find A Doctor</button>
+      <div class="col-md-9">
+    <button class="btn-primary" (click)="toggleForm('KYD')">Know Your Doctor</button>
+  </div>
+  <div class="col-md-3">
+    <button  class="btn btn-secondary" (click)="toggleForm('FAD')">Find A Doctor</button>
+  </div>
   </div>
 </div>
 
@@ -41,7 +46,7 @@
       <div class="col-md-6">
         <label for="exampleFormControlSelect3">Who specilizes in :</label>
         <select  [(ngModel)] = "specialty" id="exampleFormControlSelect3">
-              <option>Family Practice & Osteopathic Manipulative Treatment</option>
+              <option>FAMILY PRACTICE</option>
               <option>Dermatogology</option>
               <option>Dental</option>
               <option>Ear Nose Throat</option>
@@ -73,11 +78,38 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        <input class="btn-primary" (click)="getProvider($event)" type="submit" value="Submit">
+        <input class="btn btn-primary" (click)="getProvider($event)" type="submit" value="Submit">
       </div>
     </div>
   </div>
 </div>
+<div class="" *ngIf="showSearchforKYD">  
+    <div class="container">     
+      <div class="row">
+        <div class="col-md-6">
+          <label for="exampleFormControlSelect2">Provider Name :</label>
+          <input type="text" [(ngModel)] = "providerName" name="name"  minlength="5"  #name="ngModel" required id="name">
+          <div *ngIf="name.invalid && name.dirty" style="color:red">
+              Name is required.
+            </div>
+        </div>
+        <div class="col-md-6">
+          <label for="exampleFormControlSelect2">Located near :</label>
+          <input type="text" [(ngModel)] = "zipcode" id="exampleFormControlSelect2">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <input type="checkbox" [(ngModel)]="usemock"  data-md-icheck/>Use Mock
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <input class="btn btn-primary" (click)="getProviderByName($event)" type="submit" value="Submit">
+        </div>
+      </div>
+    </div>
+  </div>
 <div *ngIf="showTable" [ngClass]="showTable ? visible :hidden">
 
   <div class="row">
@@ -99,7 +131,7 @@
             <th>Email</th>
             <th>Phone</th>
             <th>Location</th>
-            <th>Rating</th>
+            <th>HealthPro Score</th>
           </tr>
         </thead>
         <tbody>

@@ -25,6 +25,9 @@ export class AppComponent {
   distance = '20';
   zipcode = '43085';
   usemock = false;
+  showSearchforKYD = false;
+  selectedType = '';
+  providerName = '';
   chartOptions = {
     // series: [{
     //   data: [1, 2, 3]
@@ -33,7 +36,7 @@ export class AppComponent {
       type: 'column'
     },
     title: {
-      text: 'Provider Rating - THOMAS JUDE MD'
+      text: 'HealthPro *360 Score - THOMAS JUDE MD'
     },
     subtitle: {
       text: 'Click the columns to view drill down matrix. Source: healthpro360.d3.ustri.com'
@@ -43,7 +46,7 @@ export class AppComponent {
     },
     yAxis: {
       title: {
-        text: 'Provider Rating'
+        text: 'HealthPro Score'
       }
 
     },
@@ -66,7 +69,7 @@ export class AppComponent {
 
     series: [
       {
-        'name': 'Provider Rating',
+        'name': 'HealthPro* Score',
         'colorByPoint': true,
         'data': [
           {
@@ -80,9 +83,20 @@ export class AppComponent {
             'drilldown': 'Communication'
           },
           {
+            'name': 'Qualification',
+            'y': 4,
+            'drilldown': 'Qualification'
+          },
+          {
             'name': 'Availability',
             'y': 3,
             'drilldown': 'Availability'
+          },
+
+          {
+            'name': 'Credibility',
+            'y': 3,
+            'drilldown': 'Credibility'
           },
           {
             'name': 'Environment',
@@ -98,11 +112,11 @@ export class AppComponent {
             'name': 'Credibility',
             'y': 1.92,
             'drilldown': 'Credibility'
-          },
+          }, 
           {
-            'name': 'Qualification',
+            'name': 'Online Reviews',
             'y': 4,
-            'drilldown': 'Qualification'
+            'drilldown': 'Online Reviews'
           }
         ]
       }
@@ -111,6 +125,47 @@ export class AppComponent {
     ],
     drilldown: {
       series: [
+
+        {
+          'name': 'Qualification',
+          'id': 'Qualification',
+          'data': [
+            [
+              'Medical school Score ',
+              3
+            ],
+            [
+              'Certifications',
+              4
+            ],
+            [
+              'Medical Credentaial Records',
+              4
+            ]
+          ]
+        },
+        {
+          'name': 'Credibility',
+          'id': 'Credibility',
+          'data': [
+            [
+              'Rate of Prior Authorization Approval  for Procedure ',
+              4
+            ],
+            [
+              'Readdmission Rate',
+              3
+            ],
+            [
+              'National Data Practioner Records',
+              1
+            ],
+            [
+              'Member Review comments',
+              4
+            ]
+          ]
+        },
         {
           'name': 'Communication',
           'id': 'Communication',
@@ -120,7 +175,11 @@ export class AppComponent {
               3
             ],
             [
-              'Follow Up',
+              'Effective Follow Up',
+              4
+            ],
+            [
+              'Explains medical condition',
               4
             ]
           ]
@@ -132,6 +191,14 @@ export class AppComponent {
             [
               'Office scheduling flexibility',
               3
+            ],
+            [
+              'Total Wait Time',
+              3
+            ],
+            [
+              'Easy of scheduling flexibility',
+              3
             ]
           ]
         },
@@ -140,57 +207,53 @@ export class AppComponent {
           'id': 'Prescription Behaviour',
           'data': [
             [
-              'Generic/Branded',
+              'Rate of Prior Authorization Approval foMediations ',
               3
             ],
             [
-              'Prior Auth Approval (Medication)',
+              'Rate of generic Drugs Vs Branded Drug',
               3
             ]
           ]
         },
         {
-          'name': 'Credibility',
-          'id': 'Credibility',
+          'name': 'Environment',
+          'id': 'Environment',
           'data': [
             [
-              'Claims Approval',
+              'Reachability of Provider locations',
+              3
+            ],
+            [
+              'Office cleanliness',
               4
             ],
             [
-              'Readdmission Rate',
-              3
-            ],
-            [
-              'Data Practioner',
-              5
+              'Area',
+              4
             ]
           ]
         },
-        {
+         {
           'name': 'Experience',
           'id': 'Experience',
           'data': [
             [
-              'Years of Practice-Industry average',
+              'Years of Practice',
               4
             ],
             [
-              'Claims Approval Rate',
-              3
+              'No of Speciality',
+              3.5
             ],
             [
-              'Prior Auth Approval Rate',
-              5
+              'medical Credential',
+              4
             ],
             [
-              'Certifcations-Industry Avag',
-              3
-            ],
-            [
-              'No of Speciality-Industry Avag',
-              2
-            ],
+              'No Of Affiliations',
+              2.9
+            ]
           ]
         }
 
@@ -198,15 +261,21 @@ export class AppComponent {
     }
   };
   provider = null;
-  toggleForm($event) {
+  toggleForm(type: string) {
     this.showBanner = !this.showBanner;
-    this.showSearch = this.showBanner ? false :true;
+    this.selectedType = type;
+    if (type === 'FAD') {
+      this.showSearch = this.showBanner ? false : true;
+    } else {
+      this.showSearchforKYD = this.showBanner ? false : true;
+    }
   }
   getRating($event, providerid) {
     this.showChart = true;
     this.showTable = false;
     this.showBanner = false;
     this.showSearch = false;
+    this.showSearchforKYD = false;
     this.http.get('https://localhost:3443/getRating', {
       params: {
         providerid: providerid
@@ -225,6 +294,7 @@ export class AppComponent {
   getProvider() {
     this.showTable = true;
     this.showSearch = false;
+    this.showSearchforKYD = false;
     this.http.get('https://localhost:3443/getProvider', {
       params: {
         professional: this.professional,
@@ -234,13 +304,39 @@ export class AppComponent {
         usemock: this.usemock.toString()
       }
     }).subscribe(data => {
-        this.provider = data;
-        this.provider = this.provider.providerList;
-        this.showTable = true;
-      });
+      this.provider = data;
+      this.provider = this.provider.providerList;
+      this.showTable = true;
+    });
+  }
+
+  getProviderByName() {
+    this.showTable = true;
+    this.showSearch = false;
+    this.showSearchforKYD = false;
+    this.http.get('https://localhost:3443/getProviderByName', {
+      params: {
+        providerName: this.providerName.toUpperCase(),
+        zipcode: this.zipcode,
+        usemock: this.usemock.toString()
+      }
+    }).subscribe(data => {
+      this.provider = data;
+      this.provider = this.provider.providerList;
+      this.showTable = true;
+    });
   }
   goToback() {
-    this.showTable = false;
-    this.showSearch = true;
+
+    if (this.selectedType === 'KYD') {
+      this.showTable = false;
+      this.showSearch = false;
+      this.showSearchforKYD = true;
+    } else {
+      this.showTable = false;
+      this.showSearch = true;
+      this.showSearchforKYD = false;
+    }
+
   }
 }
