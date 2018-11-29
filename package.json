@@ -26,6 +26,7 @@
     "highcharts-angular": "^2.3.1",
     "highcharts-drilldown": "^0.1.7",
     "neo4j-driver": "^1.5.0",
+    "ngx-modal-dialog": "^3.0.0",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },

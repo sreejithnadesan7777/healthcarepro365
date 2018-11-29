@@ -23,9 +23,10 @@
               "src/assets"
             ],
          "styles": [
-              "src/css/style.css" , "src/css/bootstrap.min.css" ,"src/css/font-awesome.min.css"
-            ],
-            "scripts": []
+              "src/css/style.css" , "src/css/bootstrap.css" ,"src/css/fontawesome-all.css"]
+         //,"src/css/aos.css","src/css/aos-animation.css","src/css/roadmap.css","src/css/simpleLightbox.css","src/css/snow.css"
+           // ]
+            //"scripts": ["src/js/jquery-2.2.3.min.js","src/js/aos.js","src/js/bootstrap.js","src/js/easing.js","src/js/jquery.countup.js","src/js/jquery.roadmap.js","src/js/jquery.waypoints.min.js","src/js/move-top.js","src/js/simpleLightbox.js"]
           },
           "configurations": {
             "production": {

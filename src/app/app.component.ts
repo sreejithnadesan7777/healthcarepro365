@@ -14,7 +14,9 @@ export class AppComponent {
   @ViewChild('chartTarget') chartTarget: ElementRef;
   constructor(private http: HttpClient) { }
   showBanner: boolean = true;
+  showModel: boolean = true;
   showTable: boolean = false;
+  showResult: boolean = false;
   showRating: boolean = false;
   title = 'healcarepro365';
   showChart: boolean = false;
@@ -263,6 +265,8 @@ export class AppComponent {
   provider = null;
   toggleForm(type: string) {
     this.showBanner = !this.showBanner;
+    this.showModel = false;
+    this.showResult = true;
     this.selectedType = type;
     if (type === 'FAD') {
       this.showSearch = this.showBanner ? false : true;

@@ -1,163 +1,379 @@
-<div class="slider" id="home">
-  <div class="container-fluid" *ngIf="showBanner">
-    <div class="row">
-      <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img src="src/assets/slide-one.jpg" alt="">
-            <div class="carousel-caption">
-              <h1>HealthPro* 360</h1>
-              <p>Care means Quality</p>
+<header class="index-banner" id="home" *ngIf="showBanner">
+  <!-- nav -->
+  <nav class="main-header d-flex">
+    <div id="brand">
+      <div id="logo">
+        <a href="index.html">
+          <img src="assets/logo.png" height="80" alt=" " class="img-fluid" />
+        </a>
+      </div>
+      <div id="word-mark">
+        <h4>
+          <a href="index.html">HealthCare Pro360</a>
+        </h4>
+      </div>
+    </div>
+    <div id="menu">
+      <div id="menu-toggle">
+        <div id="menu-icon">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+      <!-- <ul class="text-center nav-honey">
+          <li>
+              <a href="index.html" class="active ">Home</a>
+          </li>
+          <li>
+              <a class="scroll" href="#about">About</a>
+          </li>
+          <li>
+              <a class="scroll" href="#services">Services</a>
+          </li>
+          <li>
+              <a class="scroll" href="#projects">Projects</a>
+          </li>
+          <li>
+              <a class="scroll" href="#contact">Contact</a>
+          </li>
+          <li class="login">
+              <button type="button" class="btn login-btn text-uppercase " data-toggle="modal" data-target="#exampleModalCenter">
+                Login
+              </button>
+          </li>
+      </ul> -->
+    </div>
+    <div class="clearfix"></div>
+  </nav>
+  <!-- //nav -->
+  <!-- banner -->
+  <div class="banner_section">
+    <div class="snow-container">
+      <div class="snow foreground"></div>
+      <div class="snow foreground layered"></div>
+      <div class="snow middleground"></div>
+      <div class="snow middleground layered"></div>
+      <div class="snow background"></div>
+      <div class="snow background layered"></div>
+    </div>
+    <div class="banner-info text-uppercase">
+      <h4 data-aos="fade-right">Welcome</h4>
+      <h5 data-aos="fade-right">A treatment plan and prescriptions if needed</h5>
+      <h3 data-text="Get expert advice ">Get expert advice </h3>
+      <div class="ban-buttons mt-3" data-aos="fade-right">
+        <a class="btn work scroll active" href="#projects">Know your Doctor</a>
+        <a class="btn work scroll " href="#" data-toggle="modal" data-target="#exampleModalCenter2">Find your Doctor</a>
 
+
+      </div>
+
+    </div>
+  </div>
+  <!-- //banner -->
+</header>
+
+<div class="modal" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true" *ngIf="showModel">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="login px-5 mx-auto mw-100">
+          <h5 class="text-center mb-4">Provider Search</h5>
+
+
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Am looking for a</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Doctor/Medical Professional</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
             </div>
+
+
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Who specilizes in</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Select one</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">With in a distance of</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Select one</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Located Near</label>
+              <input type="password" class="form-control" id="password2" placeholder="" required="">
+            </div>
+
+            <button type="submit" class="btn btn-primary submit mb-4" (click)="toggleForm('KYD')">Submit</button>
+
+
+          <!--<button onClick="view();" >Click</button>-->
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<section class="contact py-lg-5 py-md-5 py-3"   id="about" *ngIf="showResult">
+  <div class="container" >
+    <div class="inner-sec-w3ls py-lg-5 py-4">
+      <div class="info-about text-center">
+        <div id=" " align="center">
+          <a href="index.html">
+            <img src="assets/women.png" height="80" alt=" " class="img-fluid" />
+          </a>
+        </div>
+        <h3 class="tittle-w3 text-uppercase ">Smith Michelle MD</h3>
+        <h4 class="sub-tittle-w3" style="color:#fff">Cardiology</h4>
+        <p style="color:#fff">
+          University California San Franciso<br>
+          400 Pamssus Ave<br>
+          San Francisco, CA 94143
+        </p>
+
+        <div class="row mt-lg-5 mt-3" style="background-color:#fff; padding: 22px; border-radius: 4px; padding-bottom:30px">
+          <div class="col-lg-12  ">
+            <h3 class="tittle-w3 text-uppercase ">Recommendations(4)</h3>
+          </div>
+          <div class="col-lg-4 progress-info-content text-left">
+            <div class="progress-one my-lg-5" data-aos="fade-up">
+              <h4 class="progress-tittle-w3">Low Interaction</h4>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 70%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <p style="color:#000">
+                University California San Franciso
+                400 Pamssus Ave
+                San Francisco, CA
+              </p>
+            </div>
+
+
+          </div>
+          <div class="col-lg-4 progress-info-content text-left">
+            <div class="progress-one my-lg-5" data-aos="fade-up">
+              <h4 class="progress-tittle-w3">Recent Publications</h4>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <p style="color:#000">
+                University California San Franciso
+                400 Pamssus Ave
+                San Francisco, CA
+              </p>
+            </div>
+
+          </div>
+          <div class="col-lg-4 progress-info-content text-left">
+            <div class="progress-one my-lg-5" data-aos="fade-up">
+              <h4 class="progress-tittle-w3">Low Interaction</h4>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 86%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <p style="color:#000">
+                University California San Franciso
+                400 Pamssus Ave
+                San Francisco, CA
+              </p>
+            </div>
+
+
+
           </div>
         </div>
+        <p style="color:#fff ">
+          Contact (415) 555-2421<br>
+
+          Email mrsmith@md.ucsf.edu
+        </p>
 
       </div>
     </div>
   </div>
-  <div class="row carousel-caption" *ngIf="showBanner">
-      <div class="col-md-9">
-    <button class="btn-primary" (click)="toggleForm('KYD')">Know Your Doctor</button>
-  </div>
-  <div class="col-md-3">
-    <button  class="btn btn-secondary" (click)="toggleForm('FAD')">Find A Doctor</button>
-  </div>
-  </div>
-</div>
+</section>
 
-<div class="" *ngIf="showSearch">
+<!--<div class="slider" id="home">-->
+  <!--<div class="container-fluid" *ngIf="showBanner">-->
+    <!--<div class="row">-->
+      <!--<div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">-->
+        <!--&lt;!&ndash; Wrapper for slides &ndash;&gt;-->
+        <!--<div class="carousel-inner" role="listbox">-->
+          <!--<div class="item active">-->
+            <!--<img src="src/assets/slide-one.jpg" alt="">-->
+            <!--<div class="carousel-caption">-->
+              <!--<h1>HealthPro* 360</h1>-->
+              <!--<p>Care means Quality</p>-->
 
-  <div class="container">
-    <div class="row">
-      <h3>Provider Search </h3>
-      <br>
-      <div class="col-md-6">
-        <label for="exampleFormControlSelect1">Am looking for a :</label>
-        <select [(ngModel)] = "professional" id="exampleFormControlSelect1">
-            <option>Doctor/Medical Professional</option>
-            <option>Dental Professional</option>
-            <option>Vision Professional</option>
-            <option>Orthopedic Professional</option>
-            <option>Medical Equipment</option>
-          </select>
-      </div>
-      <div class="col-md-6">
-        <label for="exampleFormControlSelect3">Who specilizes in :</label>
-        <select  [(ngModel)] = "specialty" id="exampleFormControlSelect3">
-              <option>FAMILY PRACTICE</option>
-              <option>Dermatogology</option>
-              <option>Dental</option>
-              <option>Ear Nose Throat</option>
-              <option>Emergency Medicine</option>
-            </select>
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-md-6">
-        <label for="exampleFormControlSelect4">With in a distance of :</label>
-        <select [(ngModel)] = "distance" id="exampleFormControlSelect4">
-              <option value="2">2 miles</option>
-              <option value="10">10 miles</option>
-              <option value="20">20 miles</option>
-              <option value="30">30 miles</option>
-              <option value="40">40 miles</option>
-            </select>
-      </div>
-      <div class="col-md-6">
-        <label for="exampleFormControlSelect2">Located near :</label>
-        <input type="text" [(ngModel)] = "zipcode" id="exampleFormControlSelect2">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <input type="checkbox" [(ngModel)]="usemock"  data-md-icheck/>Use Mock
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <input class="btn btn-primary" (click)="getProvider($event)" type="submit" value="Submit">
-      </div>
-    </div>
-  </div>
-</div>
-<div class="" *ngIf="showSearchforKYD">  
-    <div class="container">     
-      <div class="row">
-        <div class="col-md-6">
-          <label for="exampleFormControlSelect2">Provider Name :</label>
-          <input type="text" [(ngModel)] = "providerName" name="name"  minlength="5"  #name="ngModel" required id="name">
-          <div *ngIf="name.invalid && name.dirty" style="color:red">
-              Name is required.
-            </div>
-        </div>
-        <div class="col-md-6">
-          <label for="exampleFormControlSelect2">Located near :</label>
-          <input type="text" [(ngModel)] = "zipcode" id="exampleFormControlSelect2">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <input type="checkbox" [(ngModel)]="usemock"  data-md-icheck/>Use Mock
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <input class="btn btn-primary" (click)="getProviderByName($event)" type="submit" value="Submit">
-        </div>
-      </div>
-    </div>
-  </div>
-<div *ngIf="showTable" [ngClass]="showTable ? visible :hidden">
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
 
-  <div class="row">
-    <div class="col-md-2">
-    </div>
-    <input class="btn-primary" (click)="goToback()" type="submit" value="Reset Serach">
-  </div>
-  <div class="row">
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="row carousel-caption" *ngIf="showBanner">-->
+      <!--<div class="col-md-9">-->
+    <!--<button class="btn-primary" (click)="toggleForm('KYD')">Know Your Doctor</button>-->
+  <!--</div>-->
+  <!--<div class="col-md-3">-->
+    <!--<button  class="btn btn-secondary" (click)="toggleForm('FAD')">Find A Doctor</button>-->
+  <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
 
-    <div class="col-md-2">
-    </div>
-    <div class="col-md-8">
-      <table class="paleBlueRows">
-        <thead>
-          <tr>
-            <th>Picture</th>
-            <th>Provider name</th>
-            <th>Specialty</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Location</th>
-            <th>HealthPro Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let provider of provider; let i = index">
-            <td><img class="img1" src="src/assets/{{provider.providername}}.jpg" alt="" /></td>
-            <td>{{provider.providername}}</td>
-            <td>{{provider.providercategoryname}}</td>
-            <td>{{provider.email}}</td>
-            <td>{{provider.phone}}</td>
-            <td>{{provider.location}}</td>
-            <td (click)="getRating($event, provider.providerid)"><span *ngFor="let rating of [0,1,2,3,4]; let j = index"> <span *ngIf="rating < provider.rating" class="fa fa-star checked"></span>
-              <span
-                *ngIf="rating >= provider.rating" class="fa fa-star"></span>
-                </span>
-            </td>
-            <br>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-md-2">
-    </div>
-  </div>
-</div>
+<!--<div class="" *ngIf="showSearch">-->
 
-<div *ngIf="showChart">
-  <span (click)="backFunction($event)"><u>Return to Search Results</u></span>
-  <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" style="width: 100%; height: 400px; display: block;"></highcharts-chart>
-</div>
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<h3>Provider Search </h3>-->
+      <!--<br>-->
+      <!--<div class="col-md-6">-->
+        <!--<label for="exampleFormControlSelect1">Am looking for a :</label>-->
+        <!--<select [(ngModel)] = "professional" id="exampleFormControlSelect1">-->
+            <!--<option>Doctor/Medical Professional</option>-->
+            <!--<option>Dental Professional</option>-->
+            <!--<option>Vision Professional</option>-->
+            <!--<option>Orthopedic Professional</option>-->
+            <!--<option>Medical Equipment</option>-->
+          <!--</select>-->
+      <!--</div>-->
+      <!--<div class="col-md-6">-->
+        <!--<label for="exampleFormControlSelect3">Who specilizes in :</label>-->
+        <!--<select  [(ngModel)] = "specialty" id="exampleFormControlSelect3">-->
+              <!--<option>FAMILY PRACTICE</option>-->
+              <!--<option>Dermatogology</option>-->
+              <!--<option>Dental</option>-->
+              <!--<option>Ear Nose Throat</option>-->
+              <!--<option>Emergency Medicine</option>-->
+            <!--</select>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<br>-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-6">-->
+        <!--<label for="exampleFormControlSelect4">With in a distance of :</label>-->
+        <!--<select [(ngModel)] = "distance" id="exampleFormControlSelect4">-->
+              <!--<option value="2">2 miles</option>-->
+              <!--<option value="10">10 miles</option>-->
+              <!--<option value="20">20 miles</option>-->
+              <!--<option value="30">30 miles</option>-->
+              <!--<option value="40">40 miles</option>-->
+            <!--</select>-->
+      <!--</div>-->
+      <!--<div class="col-md-6">-->
+        <!--<label for="exampleFormControlSelect2">Located near :</label>-->
+        <!--<input type="text" [(ngModel)] = "zipcode" id="exampleFormControlSelect2">-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-6">-->
+        <!--<input type="checkbox" [(ngModel)]="usemock"  data-md-icheck/>Use Mock-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-6">-->
+        <!--<input class="btn btn-primary" (click)="getProvider($event)" type="submit" value="Submit">-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<!--<div class="" *ngIf="showSearchforKYD">  -->
+    <!--<div class="container">     -->
+      <!--<div class="row">-->
+        <!--<div class="col-md-6">-->
+          <!--<label for="exampleFormControlSelect2">Provider Name :</label>-->
+          <!--<input type="text" [(ngModel)] = "providerName" name="name"  minlength="5"  #name="ngModel" required id="name">-->
+          <!--<div *ngIf="name.invalid && name.dirty" style="color:red">-->
+              <!--Name is required.-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-6">-->
+          <!--<label for="exampleFormControlSelect2">Located near :</label>-->
+          <!--<input type="text" [(ngModel)] = "zipcode" id="exampleFormControlSelect2">-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="row">-->
+        <!--<div class="col-md-6">-->
+          <!--<input type="checkbox" [(ngModel)]="usemock"  data-md-icheck/>Use Mock-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="row">-->
+        <!--<div class="col-md-6">-->
+          <!--<input class="btn btn-primary" (click)="getProviderByName($event)" type="submit" value="Submit">-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--<div *ngIf="showTable" [ngClass]="showTable ? visible :hidden">-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-md-2">-->
+    <!--</div>-->
+    <!--<input class="btn-primary" (click)="goToback()" type="submit" value="Reset Serach">-->
+  <!--</div>-->
+  <!--<div class="row">-->
+
+    <!--<div class="col-md-2">-->
+    <!--</div>-->
+    <!--<div class="col-md-8">-->
+      <!--<table class="paleBlueRows">-->
+        <!--<thead>-->
+          <!--<tr>-->
+            <!--<th>Picture</th>-->
+            <!--<th>Provider name</th>-->
+            <!--<th>Specialty</th>-->
+            <!--<th>Email</th>-->
+            <!--<th>Phone</th>-->
+            <!--<th>Location</th>-->
+            <!--<th>HealthPro Score</th>-->
+          <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+          <!--<tr *ngFor="let provider of provider; let i = index">-->
+            <!--<td><img class="img1" src="src/assets/{{provider.providername}}.jpg" alt="" /></td>-->
+            <!--<td>{{provider.providername}}</td>-->
+            <!--<td>{{provider.providercategoryname}}</td>-->
+            <!--<td>{{provider.email}}</td>-->
+            <!--<td>{{provider.phone}}</td>-->
+            <!--<td>{{provider.location}}</td>-->
+            <!--<td (click)="getRating($event, provider.providerid)"><span *ngFor="let rating of [0,1,2,3,4]; let j = index"> <span *ngIf="rating < provider.rating" class="fa fa-star checked"></span>-->
+              <!--<span-->
+                <!--*ngIf="rating >= provider.rating" class="fa fa-star"></span>-->
+                <!--</span>-->
+            <!--</td>-->
+            <!--<br>-->
+          <!--</tr>-->
+        <!--</tbody>-->
+      <!--</table>-->
+    <!--</div>-->
+    <!--<div class="col-md-2">-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+<!--<div *ngIf="showChart">-->
+  <!--<span (click)="backFunction($event)"><u>Return to Search Results</u></span>-->
+  <!--<highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" style="width: 100%; height: 400px; display: block;"></highcharts-chart>-->
+<!--</div>-->
