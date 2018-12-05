@@ -23,12 +23,15 @@ export class AppComponent {
   title = 'healcarepro365';
   showChart: boolean = false;
   showSearch: boolean = true;
+  iceCall: boolean = true;
   Highcharts = Highcharts;
   professional = 'Doctor/Medical Professional';
   specialty = 'Family Practice';
   distance = '20';
   zipcode = '43085';
+  myFile;
   usemock = false;
+  textquery = '';
   showSearchforKYD = false;
   providerDetails = {};
   curve = shape.curveBundle.beta(1);
@@ -355,6 +358,26 @@ export class AppComponent {
     }
 
   }
+  getIceResponce($event, query) {
+    this.http.get('http://localhost:8081/ice/findprovider', {
+      params: {
+        textquery: this.textquery
+      }
+    }).subscribe(data => {
+      this.provider = data;
+      this.provider = this.provider.providerList;
+      this.iceCall = false;
+      this.showBanner = false;
+      this.showResult = true;
+
+    });
+
+  }
+
+  uploadFile($event) {
+    alert("upload file"+this.myFile);
+  }
+
   nodes = [
     {
       id: 'start',
