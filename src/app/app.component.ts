@@ -132,11 +132,6 @@ export class AppComponent {
               'drilldown': 'Prescription Behaviour'
             },
             {
-              'name': 'Credibility',
-              'y': 1.92,
-              'drilldown': 'Credibility'
-            },
-            {
               'name': 'Online Reviews',
               'y': 4,
               'drilldown': 'Online Reviews'
@@ -304,7 +299,12 @@ export class AppComponent {
   backFunction($event) {
     this.showDetails = false;
     this.showResult = true;
-    this.getProvider();
+    if (this.selectedType === 'KYD') {
+      this.getIceResponce()
+    }
+    else {
+      this.getProvider()
+    }
   }
 
   getProvider() {
@@ -358,7 +358,8 @@ export class AppComponent {
     }
 
   }
-  getIceResponce($event, query) {
+  getIceResponce() {
+    this.selectedType = 'KYD';
     this.http.get('http://localhost:8081/ice/findprovider', {
       params: {
         textquery: this.textquery
@@ -375,7 +376,7 @@ export class AppComponent {
   }
 
   uploadFile($event) {
-    alert("upload file"+this.myFile);
+    //alert("upload file"+this.myFile);
   }
 
   nodes = [
