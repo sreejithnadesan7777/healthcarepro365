@@ -377,7 +377,7 @@ export class AppComponent {
   }
 
   uploadFile($event) {
-    this.http.get('http://localhost:8081/healthcarepro/upload', {
+    this.http.get('http://localhost:8080/healthcarepro/upload', {
       params: {
         textquery: this.textquery
       }
