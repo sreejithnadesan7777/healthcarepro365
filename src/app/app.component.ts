@@ -301,10 +301,10 @@ export class AppComponent {
     this.showDetails = false;
     this.showResult = true;
     if (this.selectedType === 'KYD') {
-      this.getIceResponce()
+      this.getIceResponce();
     }
     else {
-      this.getProvider()
+      this.getProvider();
     }
   }
 
