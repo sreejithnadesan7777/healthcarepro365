@@ -39,6 +39,7 @@ export class AppComponent {
   providerName = '';
   chartOptions = {};
   provider = null;
+  uploaded: boolean = false;
   toggleForm(type: string) {
     this.showBanner = !this.showBanner;
     this.showModel = false;
@@ -333,7 +334,7 @@ export class AppComponent {
     this.showTable = true;
     this.showSearch = false;
     this.showSearchforKYD = false;
-    this.http.get('https://localhost:3443/getProviderByName', {
+    this.http.get('https://localhost:8081/getProviderByName', {
       params: {
         providerName: this.providerName.toUpperCase(),
         zipcode: this.zipcode,
@@ -376,7 +377,13 @@ export class AppComponent {
   }
 
   uploadFile($event) {
-    //alert("upload file"+this.myFile);
+    this.http.get('http://localhost:8081/healthcarepro/upload', {
+      params: {
+        textquery: this.textquery
+      }
+    }).subscribe(data => {
+      this.uploaded = true;
+    });
   }
 
   nodes = [

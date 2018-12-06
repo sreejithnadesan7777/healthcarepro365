@@ -299,7 +299,7 @@
       </div>
       <div class="modal-body">
         <div class="login px-5 mx-auto mw-100">
-          <h5 class="text-center mb-4">Provider Search</h5>
+          <h5 class="text-center mb-4">Dynamic Provider Search</h5>
 
             <div class="form-group">
               <label> Doctors Located Near</label>
@@ -326,12 +326,15 @@
       <div class="modal-body">
         <div class="login px-5 mx-auto mw-100">
           <h5 class="text-center mb-4">Upload your documents</h5>
-          <form>
-            <div class="form-group">
+          <form >
+            <div  *ngIf="!uploaded" class="form-group">
               <label for="exampleFormControlFile1">Example file input</label>
               <input  type="file" class="form-control-file" file-model="myFile" id="exampleFormControlFile1">
               <input type="text" class="form-control" id="password2" placeholder="" required="">
             </div>
+            <div  *ngIf="uploaded" class="form-group">
+              The uploaded file is submitted for processing.
+              </div>
             <button (click)="uploadFile($event)" type="submit" class="btn btn-primary submit mb-4" onclick="view();">Submit</button>
           </form>
           <!--<button onClick="view();" >Click</button>-->
